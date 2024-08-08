@@ -82,4 +82,37 @@ router.get("/set/:id", (req, res) => {
     });
 });
 
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect(`/profile/${req.session.user.id}`);
+  }
+  res.render("auth", {
+    loggedIn: false,
+    userId: req.session.user?.id,
+  });
+});
+
+router.get("/newset", (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect("/login");
+  }
+  Dice.findAll({
+    where: {
+      isPublic: true,
+    },
+  })
+    .then((diceData) => {
+      const hbsDice = diceData.map((d) => d.toJSON());
+      res.render("newSet", {
+        loggedIn: true,
+        userId: req.session.user?.id,
+        dice: hbsDice,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ msg: "oh no a nat 1", err });
+    });
+});
+
 module.exports = router;

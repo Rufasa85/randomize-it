@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/css/newSet.css" />
+<h1>new Set</h1>
+<form id="new-set-form" action="">
+  <label for="set-name">Set name</label>
+  <input type="text" id="set-name" />
+  Dice:
+  <div id="set-dice">
+    <div id="chosen-dice"></div>
+    <div id="new-set-die">
+      <div id="new-die-form" class="hide">
+        <label for="die-name">die name</label>
+        <input type="text" id="die-name" />
+        <label for="die-size">size</label>
+        <select id="die-size">
+          <option value="" selected disabled>sizes....</option>
+          <option>4</option>
+          <option>6</option>
+          <option>8</option>
+          <option>10</option>
+          <option>12</option>
+          <option>20</option>
+        </select>
+        <div id="new-faces">
+
+        </div>
+        <button id="add-die-btn">Create die</button>
+        <button type="button" id="cancel-new-die-btn">Cancel</button>
+      </div>
+      <div id="new-set-choices">
+
+        <select id="dice-select">
+          <option value="" selected disabled>select existing die....</option>
+          {{#each dice}}
+            <option value="{{id}}">
+              {{name}}
+            </option>
+          {{/each}}
+        </select>
+        <span>OR</span>
+        <button type="button" id="new-die-btn">Create new Die</button>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+<script src="/js/newSet.js"></script>

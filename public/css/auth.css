@@ -1,0 +1,31 @@
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70%;
+}
+
+.flex > * {
+  border: 1px solid black;
+  width: 45%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+}
+
+input {
+  font-size: 1em;
+}
+
+button {
+  align-self: stretch;
+  font-size: 1em;
+  margin-top: 10px;
+}
+.flex h2 {
+  text-align: center;
+  font-size: 2.4em;
+}
