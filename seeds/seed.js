@@ -16,11 +16,13 @@ const diceData = [
   {
     name: "animalz",
     isPublic: true,
+    size: 4,
     UserId: 1,
   },
   {
     name: "nap spotz",
     isPublic: true,
+    size: 4,
     UserId: 2,
   },
 ];
@@ -75,7 +77,9 @@ const seedMe = async () => {
     });
     console.table(users.map((usr) => usr.toJSON()));
     console.log("==============================");
-    const dices = await Dice.bulkCreate(diceData);
+    const dices = await Dice.bulkCreate(diceData, {
+      validate: true,
+    });
     console.table(dices.map((die) => die.toJSON()));
     console.log("==============================");
     const faces = await Face.bulkCreate(faceData);

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/oneSet.css" />
+<h1>{{set.name}}
+  by
+  <a href="/profile/{{set.User.id}}">{{set.User.username}}</a></h1>
+<div class="flexy">
+  <div class="dice-spot">
+
+    {{#each set.Dices}}
+      <h2 class="dice" data-size="{{size}}">d{{size}}:
+        {{name}}
+        <span class="result"></span>
+      </h2>
+    {{/each}}
+
+  </div>
+  <div class="tables">
+    {{#each set.Dices}}
+      <div class="table">
+        <h2>{{name}}</h2>
+        <ol>
+          {{#each Faces}}
+            <li>{{value}}</li>
+          {{/each}}
+        </ol>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<h2 id="results-spot"></h2>
+<button id="roll-btn">Roll the Dice</button>
+<script src="/js/oneSet.js"></script>

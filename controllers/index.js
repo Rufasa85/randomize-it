@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("i am route");
-});
+const htmlRoutes = require("./htmlRoutes.js");
+router.use("/", htmlRoutes);
 
 module.exports = router;

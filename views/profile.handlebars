@@ -1,0 +1,16 @@
+<h1>{{user.username}}'s set</h1>
+{{#if isMyProfile}}
+  <h1>THIS IS MY PROFILE</h1>
+  {{! TODO: if is mine, add create set button and edit/delete for each set }}
+{{/if}}
+{{#each user.Sets}}
+  <div class="card">
+    <h2>{{name}}</h2>
+    <ul>
+      {{#each Dices}}
+        <li>d{{size}}: {{name}}</li>
+      {{/each}}
+    </ul>
+    <a href="/set/{{id}}"><button>Use Set</button></a>
+  </div>
+{{/each}}

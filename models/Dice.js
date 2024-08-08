@@ -11,6 +11,12 @@ Dice.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    size: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isIn: [[4, 6, 8, 10, 12, 20]],
+      },
+    },
     isPublic: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
