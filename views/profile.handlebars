@@ -1,8 +1,5 @@
 <h1>{{user.username}}'s set</h1>
-{{#if isMyProfile}}
-  <h1>THIS IS MY PROFILE</h1>
-  {{! TODO: if is mine, add create set button and edit/delete for each set }}
-{{/if}}
+
 {{#each user.Sets}}
   <div class="card">
     <h2>{{name}}</h2>
@@ -12,5 +9,12 @@
       {{/each}}
     </ul>
     <a href="/set/{{id}}"><button>Use Set</button></a>
+    {{#if ../isMyProfile}}
+      <button class="del-set-btn" data-id="{{id}}">Delete</button>
+    {{/if}}
   </div>
 {{/each}}
+{{#if isMyProfile}}
+  {{> addSetLink}}
+{{/if}}
+<script src="/js/profile.js"></script>

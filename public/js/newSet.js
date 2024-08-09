@@ -6,6 +6,7 @@ document.querySelector("#dice-select").addEventListener("change", (e) => {
     document.querySelector("#dice-select").value = "";
     return;
   }
+  //TODO: refetch after add a new die
   fetch(`/api/dices/${e.target.value}`)
     .then((res) => res.json())
     .then((data) => {
@@ -113,6 +114,29 @@ document.querySelector("#add-die-btn").addEventListener("click", (e) => {
       });
     } else {
       alert("oh no!");
+    }
+  });
+});
+
+document.querySelector("#add-set-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const setObj = {
+    name: document.querySelector("#set-name").value,
+    isPublic: true,
+    dice: setDice,
+  };
+  console.log(setObj);
+  fetch("/api/sets", {
+    method: "POST",
+    body: JSON.stringify(setObj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      location.href = "/";
+    } else {
+      alert("trumpet sound");
     }
   });
 });

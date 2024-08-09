@@ -1,7 +1,7 @@
 const User = require("./User");
 const Dice = require("./Dice");
 const Face = require("./Face");
-const Set = require("./Set");
+const Set = require("../db/Set");
 
 User.hasMany(Dice);
 Dice.belongsTo(User);

@@ -2,7 +2,7 @@
 
 {{#each sets}}
   <div class="card">
-    <h2>{{name}} by <a href="/profile/{{id}}">{{User.username}}</a></h2>
+    <h2>{{name}} by <a href="/profile/{{User.id}}">{{User.username}}</a></h2>
     <ul>
       {{#each Dices}}
         <li>d{{size}}: {{name}}</li>
@@ -11,3 +11,7 @@
     <a href="/set/{{id}}"><button>Use Set</button></a>
   </div>
 {{/each}}
+
+{{#if loggedIn}}
+{{> addSetLink}}
+{{/if}}

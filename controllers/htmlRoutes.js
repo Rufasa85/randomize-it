@@ -2,19 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { User, Set, Dice, Face } = require("../models");
 
-router.get("/loginasjoe", (req, res) => {
-  req.session.loggedIn = true;
-  req.session.user = {
-    id: 1,
-  };
-  res.send("hi joe");
-});
-
-router.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.send("logged out");
-});
-
 router.get("/", (req, res) => {
   Set.findAll({
     include: [User, Dice],

@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
 }
-button {
+main button {
   display: block;
   font-size: 4em;
   background-color: cadetblue;
